@@ -69,8 +69,20 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  const queenX = Object.values(queen)[0];
+  const queenY = Object.values(queen)[1];
+  const kingX = Object.values(king)[0];
+  const kingY = Object.values(king)[1];
+  if (
+    queenX + queenY === kingX + kingY ||
+    queenX - queenY === kingX - kingY ||
+    queenX === kingX ||
+    queenY === kingY
+  ) {
+    return true;
+  }
+  return false;
 }
 
 /**
